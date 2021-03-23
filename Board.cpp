@@ -86,8 +86,7 @@ using namespace ariel;
      * 
      */
      void Board::post(uint row,uint col,Direction direction,string const& data){
-        // input check 
-        if(data.length()==0){throw std::out_of_range{"the data is empty"}; }
+        
         resize_matrix(row,col);// if the row or col is out of bondes then the matrix will be resized 
         
         // make sure there is enough space to post the data 

@@ -148,17 +148,6 @@ TEST_CASE("read and post-Horizontal and Vertical"){
 }
 
 
-TEST_CASE("edge cases"){
-    Board b;
-    string empty;
-    uint row = 0, col = 0;
-    CHECK_THROWS(b.post(row,col,Direction::Horizontal,empty)); // cannot post empty string 
-    CHECK_THROWS(b.post(row,col,Direction::Vertical,empty)); 
-    
-
-
-}
-
 
 TEST_CASE("complex cases for read and post"){
     Board b; 
