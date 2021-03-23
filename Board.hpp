@@ -16,7 +16,7 @@ namespace ariel{
         char DEFAULT;
 
 
-        bool has_space(int post_length,Direction direction,int row,int col)const;
+        bool has_space(int post_length,Direction direction,uint row,uint col)const;
         
         void post_data(std::string data,Direction direction,uint row,uint col);
 
@@ -48,9 +48,9 @@ namespace ariel{
         std::string to_string();
 
         //methods
-        void post(uint row,uint col,Direction direction,std::string const& data);
+        void post(uint row,uint col,Direction direction,const std::string &data);
 
-        std::string read(uint row,uint col,Direction direction,int length);
+        std::string read(uint row,uint col,Direction direction,uint length);
 
         void show();
 

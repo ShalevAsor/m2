@@ -152,10 +152,9 @@ TEST_CASE("edge cases"){
     Board b;
     string empty;
     uint row = 0, col = 0;
-    int length =-1;
     CHECK_THROWS(b.post(row,col,Direction::Horizontal,empty)); // cannot post empty string 
     CHECK_THROWS(b.post(row,col,Direction::Vertical,empty)); 
-    CHECK_THROWS(b.read(row,col,Direction::Horizontal,length)); // length < 0 
+    
 
 
 }
@@ -165,7 +164,7 @@ TEST_CASE("complex cases for read and post"){
     Board b; 
     string data = "hello",ans;
     uint row = 20 , col = 11 ;
-    int length = 5; 
+    uint length = 5; 
     b.post(row,col,Direction::Horizontal,data);
     row = 20, col = 13;
     ans = "llo__";

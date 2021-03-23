@@ -91,7 +91,7 @@ using namespace ariel;
         resize_matrix(row,col);// if the row or col is out of bondes then the matrix will be resized 
         
         // make sure there is enough space to post the data 
-        if(has_space(data.length(),direction,((int)row),((int)col))){//there is enough space.
+        if(has_space(data.length(),direction,row,col)){//there is enough space.
 
              post_data(data,direction,row,col);// post the data
         }
@@ -124,7 +124,7 @@ using namespace ariel;
      * if the row/col is bigger then the array size then the data will increase with the 
      * default value. 
      */
-    string Board::read(uint row,uint col,Direction direction,int length){
+    string Board::read(uint row,uint col,Direction direction,uint length){
         string data;
         //input check 
         if(length<0){throw std::out_of_range{"the post length cant be negative!"};}
@@ -171,17 +171,15 @@ using namespace ariel;
      * This method return true iff there is enough space to post all the data 
      */
 
-    bool Board::has_space(int post_length,Direction direction,int row,int col) const{
+    bool Board::has_space(int post_length,Direction direction,uint row,uint col) const{
         bool ans = false;
 
         if(this->rows<row||this->cols<col){return ans;}
         if(direction == Direction::Horizontal){
-           // int cols_difference = (int)this->cols - col; 
-            if(this->cols<col+post_length){return ans;}// there is no enough space 
+            if(this->cols<col+((uint)post_length)){return ans;}// there is no enough space 
             ans= true;}
         else{
-            //int rows_difference = (int)this->rows-row; 
-            if(this->rows<row+post_length){return ans;}
+            if(this->rows<row+((uint)post_length)){return ans;}
             ans= true; 
         }
         return ans; 
