@@ -15,18 +15,18 @@ using namespace ariel;
 
      //constructor - init the panel (2D array) to default size . 
 
-     Board::Board():INIT_SIZE(2) {
-         this->rows=2; 
-         this->cols=2;
+     Board::Board(){
+         this->rows=0; 
+         this->cols=0;
          this->DEFAULT='_'; // this char is the default value for the array
 
-         for(int i=0;i<INIT_SIZE;i++){
-             vector<char> temp(this->INIT_SIZE);// create array of chars 
-             for(int j=0;j<INIT_SIZE;j++){
-                 temp.push_back(this->DEFAULT); // init the array to the default value 
-             }
-             this->panel.push_back(temp); // add the array
-         }
+        //  for(int i=0;i<INIT_SIZE;i++){
+        //      vector<char> temp(this->INIT_SIZE);// create array of chars 
+        //      for(int j=0;j<INIT_SIZE;j++){
+        //          temp.push_back(this->DEFAULT); // init the array to the default value 
+        //      }
+        //      this->panel.push_back(temp); // add the array
+        //  }
      } 
 
      //destructor
@@ -208,11 +208,11 @@ using namespace ariel;
      */
     void Board::resize_matrix(uint row,uint col){
         
-        if(row>this->rows){
+        if(row>=this->rows){
             this->panel.resize(row+1,vector<char>(this->cols,this->DEFAULT));   
             set_rows(row+1);
         }
-        if(col>this->cols){
+        if(col>=this->cols){
             for(size_t i=0;i<this->rows;i++){
                 this->panel.at(i).resize(col+1,this->DEFAULT);
             }

@@ -12,7 +12,7 @@ namespace ariel{
         std::vector<std::vector<char>> panel; 
         uint rows;
         uint cols;
-        const uint INIT_SIZE;
+       // const uint INIT_SIZE;
         char DEFAULT;
 
 
